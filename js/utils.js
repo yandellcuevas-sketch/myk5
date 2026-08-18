@@ -156,6 +156,9 @@ function validateKm(value, currentKm = 0) {
 }
 
 function validateAmount(value) {
+  if (typeof value === 'string' && value.trim() !== '' && !/\d/.test(value)) {
+    return 'El monto debe ser un número positivo.';
+  }
   const n = parseCurrency(value);
   if (isNaN(n) || n < 0) return 'El monto debe ser un número positivo.';
   return null;
