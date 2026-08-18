@@ -87,26 +87,27 @@
 
     card.innerHTML = `
       <div class="stats-card-header">
-        <span class="stats-card-title">💳 Costo de tu K5 — ${periodLabel}</span>
+        <span class="stats-card-title" style="display:flex;align-items:center;gap:6px;">${Icons.get('expense')} Costo de tu K5 — ${periodLabel}</span>
       </div>
       <div style="font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:var(--text-primary);margin-bottom:var(--space-sm);">
         ${formatCurrency(costs.total)}
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);margin-bottom:var(--space-sm);">
-        ${buildCostLine('⛽ Gasolina', costs.fuel)}
-        ${buildCostLine('🔧 Mantenimiento', costs.maintenance)}
-        ${buildCostLine('🧽 Lavados', costs.wash)}
-        ${buildCostLine('💰 Otros', costs.expenses + costs.trips)}
+        ${buildCostLine('Gasolina', costs.fuel, 'fuel')}
+        ${buildCostLine('Mantenimiento', costs.maintenance, 'maintenance')}
+        ${buildCostLine('Lavados', costs.wash, 'wash')}
+        ${buildCostLine('Otros', costs.expenses + costs.trips, 'expense')}
       </div>
       ${costs.total > 0 && settings.lastKm > 0 ? buildCostPerKm(costs.total, settings) : ''}
     `;
     return card;
   }
 
-  function buildCostLine(label, amount) {
+  function buildCostLine(label, amount, iconKey) {
+    const icon = iconKey ? `<span style="color:var(--text-muted);display:inline-flex;align-items:center;margin-right:4px;">${Icons.get(iconKey)}</span>` : '';
     return `
       <div style="padding:var(--space-sm);background:var(--bg-card-hover);border-radius:var(--radius-md);">
-        <div style="font-size:0.6875rem;color:var(--text-muted);margin-bottom:2px;">${label}</div>
+        <div style="font-size:0.6875rem;color:var(--text-muted);margin-bottom:4px;display:flex;align-items:center;">${icon}${label}</div>
         <div style="font-size:1rem;font-weight:700;">${formatCurrency(amount)}</div>
       </div>
     `;
@@ -157,7 +158,7 @@
 
     card.innerHTML = `
       <div class="stats-card-header">
-        <span class="stats-card-title">📊 Distribución de gastos</span>
+        <span class="stats-card-title" style="display:flex;align-items:center;gap:6px;">${Icons.get('stats')} Distribución de gastos</span>
       </div>
       <div class="dist-bar">${bars}</div>
       <div class="dist-legend" style="margin-top:var(--space-md);">${legend}</div>
@@ -177,7 +178,7 @@
     const canvasId = 'chart-monthly-' + Date.now();
     card.innerHTML = `
       <div class="stats-card-header">
-        <span class="stats-card-title">📈 Gastos por mes</span>
+        <span class="stats-card-title" style="display:flex;align-items:center;gap:6px;">${Icons.get('stats')} Gastos por mes</span>
       </div>
       <div class="chart-container">
         <canvas id="${canvasId}"></canvas>
@@ -259,7 +260,7 @@
     const card = createElement('div', { className: 'stats-card' });
     card.innerHTML = `
       <div class="stats-card-header">
-        <span class="stats-card-title">⛽ Estadísticas de gasolina</span>
+        <span class="stats-card-title" style="display:flex;align-items:center;gap:6px;">${Icons.get('fuel')} Estadísticas de gasolina</span>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);">
         ${buildStatItem('Total gastado', formatCurrency(totalAmount))}
@@ -294,7 +295,7 @@
   function buildEmptyStats() {
     const div = createElement('div', { className: 'empty-state' });
     div.innerHTML = `
-      <div class="empty-state-icon">📊</div>
+      <div class="empty-state-icon" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);">${Icons.get('stats')}</div>
       <div class="empty-state-title">Sin datos suficientes</div>
       <div class="empty-state-text">
         Las estadísticas aparecerán cuando registres algunos gastos de tu K5.

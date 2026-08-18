@@ -89,14 +89,15 @@
   }
 
   function buildTimelineItem(record) {
-    const meta = STORE_META[record._store] || { emoji: '📝', label: 'Registro', color: '#888' };
+    const meta = STORE_META[record._store] || { icon: 'other_maint', label: 'Registro', color: '#888' };
 
     const item = createElement('div', { className: 'timeline-item' });
 
     // Icon
     const iconDiv = createElement('div', { className: 'timeline-item-icon' });
     iconDiv.style.background = meta.color + '18';
-    iconDiv.textContent = meta.emoji;
+    iconDiv.style.color = meta.color;
+    iconDiv.innerHTML = Icons.get(meta.icon);
 
     // Body
     const body = createElement('div', { className: 'timeline-item-body' });
@@ -117,7 +118,8 @@
     }
 
     // Delete button
-    const deleteBtn = createElement('div', { className: 'timeline-item-delete', textContent: '🗑' });
+    const deleteBtn = createElement('div', { className: 'timeline-item-delete' });
+    deleteBtn.innerHTML = Icons.get('trash');
     deleteBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       showConfirm('¿Eliminar este registro?', () => deleteRecord(record));
@@ -147,25 +149,25 @@
   function getRecordTitle(record) {
     switch (record._store) {
       case 'fuel':
-        return `⛽ Gasolina${record.station ? ` · ${record.station}` : ''}`;
+        return `Gasolina${record.station ? ` · ${record.station}` : ''}`;
       case 'wash': {
         const wType = WASH_TYPES[record.type];
-        return `🧽 Lavado ${wType ? wType.label : ''}`;
+        return `Lavado ${wType ? wType.label : ''}`;
       }
       case 'maintenance': {
         const mType = MAINTENANCE_TYPES[record.type];
-        if (record.type === 'other' && record.description) return `🔧 ${record.description}`;
-        return `🔧 ${mType ? mType.label : 'Mantenimiento'}`;
+        if (record.type === 'other' && record.description) return `${record.description}`;
+        return `${mType ? mType.label : 'Mantenimiento'}`;
       }
       case 'expenses': {
         const cat = EXPENSE_CATEGORIES[record.category];
-        return `${cat ? cat.emoji : '💰'} ${cat ? cat.label : 'Gasto'}${record.notes ? ` · ${record.notes}` : ''}`;
+        return `${cat ? cat.label : 'Gasto'}${record.notes ? ` · ${record.notes}` : ''}`;
       }
       case 'trips': {
         const origin = record.origin || '';
         const dest   = record.destination || '';
-        if (origin && dest) return `🛣 ${origin} → ${dest}`;
-        return `🛣 Viaje${dest ? ` a ${dest}` : ''}`;
+        if (origin && dest) return `${origin} → ${dest}`;
+        return `Viaje${dest ? ` a ${dest}` : ''}`;
       }
       default:
         return 'Registro';

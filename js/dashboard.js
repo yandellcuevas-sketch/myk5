@@ -79,7 +79,7 @@
         .reduce((sum, r) => sum + (r.amount || 0), 0);
 
       const fuelCard = buildMetricCard(
-        '⛽',
+        Icons.get('fuel'),
         'Gasolina',
         fuelThisMonth > 0 ? formatCurrency(fuelThisMonth) : 'Sin registros',
         fuelThisMonth > 0 ? 'Este mes' : 'Registra tu primera carga',
@@ -92,7 +92,7 @@
       // Metric 2: Último lavado
       const lastWash = [...wash].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
       const washCard = buildMetricCard(
-        '🧽',
+        Icons.get('wash'),
         'Último lavado',
         lastWash ? formatDaysAgo(lastWash.date) : 'Sin registros',
         lastWash ? `${lastWash.type ? getWashTypeLabel(lastWash.type) : ''} · ${formatCurrency(lastWash.cost || 0)}` : 'Registra un lavado',
@@ -117,7 +117,7 @@
         : 'Registra un cambio de aceite';
 
       const oilCard = buildMetricCard(
-        '🔧',
+        Icons.get('oil'),
         'Próximo aceite',
         oilValue,
         oilSub,
@@ -130,7 +130,7 @@
       // Metric 4: Km recorridos este mes
       const kmThisMonth = getKmThisMonth(fuel, maint, trips, currentKey);
       const kmCard = buildMetricCard(
-        '🛣',
+        Icons.get('speedometer'),
         'Recorrido',
         kmThisMonth > 0 ? formatKm(kmThisMonth) : '—',
         'Este mes',
@@ -147,14 +147,14 @@
 
   // ─── Helpers ──────────────────────────────────────────────────
 
-  function buildMetricCard(emoji, label, value, sub, color, isAlert, onClick) {
+  function buildMetricCard(iconSvg, label, value, sub, color, isAlert, onClick) {
     const card = createElement('div', {
       className: `metric-card${isAlert ? ' alert' : ''}`,
       ...(onClick ? { role: 'button', tabindex: '0' } : {})
     });
 
     card.innerHTML = `
-      <div class="metric-card-emoji">${emoji}</div>
+      <div class="metric-card-emoji" style="color:${color};">${iconSvg}</div>
       <div class="metric-card-label">${label}</div>
       <div class="metric-card-value">${value}</div>
       ${sub ? `<div class="metric-card-sub">${sub}</div>` : ''}
@@ -178,14 +178,14 @@
       const kmLeft = settings.oilNextKm - currentKm;
       if (kmLeft <= 1000 && kmLeft > 0) {
         alertsEl.appendChild(buildAlert(
-          '⚠️',
+          Icons.get('alert'),
           `Cambio de aceite próximo — Faltan ${formatKm(kmLeft)}`,
           'Registrar',
           () => window.openModal('maintenance')
         ));
       } else if (kmLeft <= 0) {
         alertsEl.appendChild(buildAlert(
-          '🔴',
+          Icons.get('alert'),
           `Cambio de aceite vencido — ${formatKm(Math.abs(kmLeft))} de retraso`,
           'Registrar',
           () => window.openModal('maintenance')
@@ -198,7 +198,7 @@
       const days = Math.floor((Date.now() - new Date(settings.lastWashDate)) / 86400000);
       if (days > 14) {
         alertsEl.appendChild(buildAlert(
-          '🧽',
+          Icons.get('wash'),
           `Último lavado hace ${days} días`,
           'Registrar',
           () => window.openModal('wash')

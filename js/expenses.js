@@ -18,8 +18,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">💰 ${editData ? 'Editar gasto' : 'Registrar gasto'}</span>
-            <button class="modal-close" id="modal-exp-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('expense')} ${editData ? 'Editar gasto' : 'Registrar gasto'}</span>
+            <button class="modal-close" id="modal-exp-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">
@@ -30,7 +30,7 @@
                 <div class="chips-row" id="exp-cat-chips">
                   ${categories.map(([key, val]) => `
                     <button class="chip ${(d.category || 'toll') === key ? 'active' : ''}"
-                      data-val="${key}">${val.emoji} ${val.label}</button>
+                      data-val="${key}">${Icons.get(val.icon || 'expense')} ${val.label}</button>
                   `).join('')}
                 </div>
               </div>

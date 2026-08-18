@@ -195,35 +195,35 @@ function formatCostPerKm(cost, km) {
 // ─── Stores labels ───────────────────────────────────────────────────────────
 
 const STORE_META = {
-  fuel:        { emoji: '⛽', label: 'Gasolina',      color: '#F59E0B' },
-  wash:        { emoji: '🧽', label: 'Lavado',        color: '#3B82F6' },
-  maintenance: { emoji: '🔧', label: 'Mantenimiento', color: '#10B981' },
-  expenses:    { emoji: '💰', label: 'Gasto',         color: '#8B5CF6' },
-  trips:       { emoji: '🛣', label: 'Viaje',         color: '#EC4899' },
+  fuel:        { icon: 'fuel',        label: 'Gasolina',      color: '#F59E0B' },
+  wash:        { icon: 'wash',        label: 'Lavado',        color: '#3B82F6' },
+  maintenance: { icon: 'maintenance', label: 'Mantenimiento', color: '#10B981' },
+  expenses:    { icon: 'expense',     label: 'Gasto',         color: '#8B5CF6' },
+  trips:       { icon: 'trip',        label: 'Viaje',         color: '#EC4899' },
 };
 
 const MAINTENANCE_TYPES = {
-  oil:     { label: 'Aceite', emoji: '🛢' },
-  tires:   { label: 'Gomas / Frenos', emoji: '⚙️' },
-  battery: { label: 'Batería', emoji: '🔋' },
-  other:   { label: 'Otro', emoji: '🔧' },
+  oil:     { label: 'Aceite',         icon: 'oil' },
+  tires:   { label: 'Gomas / Frenos', icon: 'tires' },
+  battery: { label: 'Batería',        icon: 'battery' },
+  other:   { label: 'Otro',           icon: 'other_maint' },
 };
 
 const WASH_TYPES = {
-  exterior: { label: 'Exterior', emoji: '💧' },
-  full:     { label: 'Completo', emoji: '✨' },
-  interior: { label: 'Interior', emoji: '🧹' },
-  detail:   { label: 'Detailing', emoji: '⭐' },
+  exterior: { label: 'Exterior',  icon: 'exterior' },
+  full:     { label: 'Completo',  icon: 'full_wash' },
+  interior: { label: 'Interior',  icon: 'interior' },
+  detail:   { label: 'Detailing', icon: 'detailing' },
 };
 
 const EXPENSE_CATEGORIES = {
-  toll:      { label: 'Peaje', emoji: '🛣' },
-  parking:   { label: 'Parqueo', emoji: '🅿️' },
-  insurance: { label: 'Seguro', emoji: '🛡' },
-  plate:     { label: 'Marbete', emoji: '📋' },
-  accessory: { label: 'Accesorio', emoji: '🛒' },
-  fine:      { label: 'Multa', emoji: '⚠️' },
-  other:     { label: 'Otro', emoji: '💸' },
+  toll:      { label: 'Peaje',     icon: 'toll' },
+  parking:   { label: 'Parqueo',   icon: 'parking' },
+  insurance: { label: 'Seguro',    icon: 'insurance' },
+  plate:     { label: 'Marbete',   icon: 'plate' },
+  accessory: { label: 'Accesorio', icon: 'accessory' },
+  fine:      { label: 'Multa',     icon: 'fine' },
+  other:     { label: 'Otro',      icon: 'other_expense' },
 };
 
 // ─── DOM helpers ─────────────────────────────────────────────────────────────

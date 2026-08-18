@@ -1,6 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
-  <rect width="180" height="180" rx="36" fill="#0A0A0F"/>
-  <rect x="9" y="9" width="162" height="162" rx="32" fill="#16161F"/>
-  <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-size="90" font-family="system-ui">&#x1F697;</text>
-  <text x="50%" y="148" dominant-baseline="middle" text-anchor="middle" font-size="25" font-family="system-ui,sans-serif" fill="#C8A84B" font-weight="700">K5</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181824"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2CA76"/>
+      <stop offset="100%" stop-color="#A6842A"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#C8A84B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C8A84B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="100" height="100" rx="22" fill="url(#bgGrad)"/>
+  <rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+
+  <!-- Subtle glow cone -->
+  <circle cx="50" cy="42" r="32" fill="url(#glowGrad)"/>
+
+  <!-- Sleek modern automotive silhouette (Kia K5 fastback profile) -->
+  <g transform="translate(18, 22) scale(0.64)">
+    <path d="M 6 52 
+             C 12 50, 18 48, 24 45
+             C 32 32, 42 22, 58 20
+             C 74 18, 86 28, 92 42
+             L 96 46
+             C 98 48, 98 52, 95 54
+             L 91 55
+             C 89 50, 83 46, 76 46
+             C 69 46, 63 50, 61 55
+             L 37 55
+             C 35 50, 29 46, 22 46
+             C 15 46, 9 50, 7 55
+             L 4 55
+             C 2 55, 1 53, 3 50 Z" 
+          fill="none" 
+          stroke="url(#goldGrad)" 
+          stroke-width="3" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+          
+    <!-- Wheels -->
+    <circle cx="22" cy="55" r="7" fill="#12121A" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="76" cy="55" r="7" fill="#12121A" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="22" cy="55" r="2.5" fill="#C8A84B"/>
+    <circle cx="76" cy="55" r="2.5" fill="#C8A84B"/>
+
+    <!-- Fastback window outline -->
+    <path d="M 33 42 C 38 31, 46 25, 57 24 C 68 23, 76 30, 80 42 Z" 
+          fill="rgba(200, 168, 75, 0.15)" 
+          stroke="url(#goldGrad)" 
+          stroke-width="1.8" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Clean Typography -->
+  <text x="50" y="82" 
+        text-anchor="middle" 
+        font-family="system-ui, -apple-system, 'SF Pro Display', sans-serif" 
+        font-size="16" 
+        font-weight="800" 
+        letter-spacing="2.5" 
+        fill="url(#goldGrad)">MY K5</text>
 </svg>

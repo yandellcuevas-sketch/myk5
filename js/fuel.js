@@ -21,8 +21,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">⛽ ${editData ? 'Editar gasolina' : 'Registrar gasolina'}</span>
-            <button class="modal-close" id="modal-fuel-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('fuel')} ${editData ? 'Editar gasolina' : 'Registrar gasolina'}</span>
+            <button class="modal-close" id="modal-fuel-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">

@@ -18,8 +18,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">🛣 ${editData ? 'Editar viaje' : 'Registrar viaje'}</span>
-            <button class="modal-close" id="modal-trip-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('trip')} ${editData ? 'Editar viaje' : 'Registrar viaje'}</span>
+            <button class="modal-close" id="modal-trip-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">
@@ -121,7 +121,7 @@
   function buildTripExpenseRow(expData = {}, index = 0) {
     const categories = EXPENSE_CATEGORIES;
     const catOptions = Object.entries(categories)
-      .map(([k, v]) => `<option value="${k}" ${(expData.category || 'toll') === k ? 'selected' : ''}>${v.emoji} ${v.label}</option>`)
+      .map(([k, v]) => `<option value="${k}" ${(expData.category || 'toll') === k ? 'selected' : ''}>${v.label}</option>`)
       .join('');
 
     return `
@@ -136,7 +136,7 @@
             style="padding-left:36px;" placeholder="0" inputmode="decimal" min="0"
             value="${expData.amount || ''}" />
         </div>
-        <button class="trip-exp-remove btn-icon" style="flex-shrink:0;" title="Eliminar">✕</button>
+        <button class="trip-exp-remove btn-icon" style="flex-shrink:0;" title="Eliminar">${Icons.get('trash')}</button>
       </div>
     `;
   }

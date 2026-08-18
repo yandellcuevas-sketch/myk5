@@ -19,8 +19,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">🔧 ${editData ? 'Editar mantenimiento' : 'Registrar mantenimiento'}</span>
-            <button class="modal-close" id="modal-maint-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('maintenance')} ${editData ? 'Editar mantenimiento' : 'Registrar mantenimiento'}</span>
+            <button class="modal-close" id="modal-maint-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">
@@ -31,7 +31,7 @@
                 <div class="chips-row" id="maint-type-chips">
                   ${typeEntries.map(([key, val]) => `
                     <button class="chip ${(d.type || 'oil') === key ? 'active' : ''}"
-                      data-val="${key}">${val.emoji} ${val.label}</button>
+                      data-val="${key}">${Icons.get(val.icon || 'maintenance')} ${val.label}</button>
                   `).join('')}
                 </div>
               </div>

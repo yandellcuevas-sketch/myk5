@@ -65,7 +65,7 @@
     if (settingsList) {
       settingsList.innerHTML = `
         <button class="settings-item" id="vehicle-edit-btn-2">
-          <span class="settings-item-icon">✏️</span>
+          <span class="settings-item-icon">${Icons.get('edit')}</span>
           <div class="settings-item-body">
             <div class="settings-item-label">Editar perfil</div>
             <div class="settings-item-sub">Nombre, año, color, placa...</div>
@@ -108,8 +108,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">🚗 Editar perfil</span>
-            <button class="modal-close" id="modal-vehicle-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('car')} Editar perfil</span>
+            <button class="modal-close" id="modal-vehicle-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">
@@ -202,8 +202,8 @@
         <div class="modal">
           <div class="modal-handle"></div>
           <div class="modal-header">
-            <span class="modal-title">🛣 Actualizar kilometraje</span>
-            <button class="modal-close" id="modal-km-close">✕</button>
+            <span class="modal-title" style="display:flex;align-items:center;gap:8px;">${Icons.get('speedometer')} Actualizar kilometraje</span>
+            <button class="modal-close" id="modal-km-close">${Icons.get('close')}</button>
           </div>
           <div class="modal-body">
             <div class="form-section">

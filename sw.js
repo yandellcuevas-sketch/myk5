@@ -3,7 +3,7 @@
  * Usa Cache-First para assets estáticos, Network-First para HTML
  */
 
-const CACHE_NAME = 'myk5-v1';
+const CACHE_NAME = 'myk5-v2';
 
 // Assets que se cachean al instalar
 const PRECACHE_ASSETS = [
@@ -12,6 +12,7 @@ const PRECACHE_ASSETS = [
   './css/app.css',
   './css/components.css',
   './css/animations.css',
+  './js/icons.js',
   './js/state.js',
   './js/utils.js',
   './js/db.js',
