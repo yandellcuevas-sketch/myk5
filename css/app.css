@@ -254,6 +254,17 @@ ul, ol {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-sm);
+  min-width: 0;
+}
+
+.grid-2 > * {
+  min-width: 0;
+}
+
+@media (max-width: 340px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Toast container ───────────────────────────────────────── */

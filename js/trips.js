@@ -125,18 +125,17 @@
       .join('');
 
     return `
-      <div class="trip-expense-row" data-idx="${index}" style="
-        display:flex;gap:var(--space-sm);align-items:center;margin-bottom:var(--space-sm);">
-        <select class="form-input trip-exp-cat" style="flex:1.5;padding:10px 8px;">
+      <div class="trip-expense-row" data-idx="${index}">
+        <select class="form-input trip-exp-cat">
           ${catOptions}
         </select>
-        <div style="flex:1;position:relative;">
-          <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.875rem;">RD$</span>
+        <div class="form-prefix" style="flex:1;">
+          <span class="form-prefix-label" style="font-size:0.75rem;left:10px;">RD$</span>
           <input class="form-input trip-exp-amount" type="number"
-            style="padding-left:36px;" placeholder="0" inputmode="decimal" min="0"
+            style="padding-left:38px;" placeholder="0" inputmode="decimal" min="0"
             value="${expData.amount || ''}" />
         </div>
-        <button class="trip-exp-remove btn-icon" style="flex-shrink:0;" title="Eliminar">${Icons.get('trash')}</button>
+        <button class="trip-exp-remove btn-icon" title="Eliminar">${Icons.get('trash')}</button>
       </div>
     `;
   }
