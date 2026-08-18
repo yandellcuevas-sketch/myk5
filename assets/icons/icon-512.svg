@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="102" fill="#0A0A0F"/>
+  <rect x="26" y="26" width="460" height="460" rx="92" fill="#16161F"/>
+  <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-size="256" font-family="system-ui">&#x1F697;</text>
+  <text x="50%" y="420" dominant-baseline="middle" text-anchor="middle" font-size="72" font-family="system-ui,sans-serif" fill="#C8A84B" font-weight="700">K5</text>
+</svg>
