@@ -15,3 +15,5 @@ desktop.ini
 # Temp
 *.tmp
 *.bak
+
+server.js
